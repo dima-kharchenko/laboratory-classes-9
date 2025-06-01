@@ -1,5 +1,5 @@
 const express = require("express");
-// const cors = require("cors");
+const cors = require("cors");
 const dotenv = require("dotenv");
 
 const bookRoutes = require("./routes/bookRoutes");
@@ -12,7 +12,7 @@ dotenv.config();
 const PORT = process.env.PORT || 3001;
 
 const app = express();
-// app.use();
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/books", bookRoutes);
